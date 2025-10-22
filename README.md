@@ -1,2 +1,23 @@
-# ancrar-landing
-Landing page for the Ancrar educational application for learning management. Developed with Astro. Responsive and modern design that presents the main features of the educational platform. Includes sections on features, benefits, and calls to action.
+# BCMS Restaurant code starter for Astro.js
+
+This is an Astro.js starter kit for BCMS, a headless CMS. It's minimal but solid, with a clean codebase that hooks directly into your BCMS project, ready to extend and scale as needed.
+
+## Getting Started
+
+Run the following command
+
+```bash
+npx @thebcms/cli create astro starter restaurant
+```
+
+and follow the prompts.
+
+---
+
+### Useful links:
+
+-   [BCMS website](https://thebcms.com/)
+-   [BCMS documentation](https://thebcms.com/docs/)
+-   [BCMS and Astro integration](https://thebcms.com/docs/integrations/astro)
+-   [All BCMS starters](https://thebcms.com/starters)
+-   [Join our Discord](https://discord.com/invite/SYBY89ccaR)

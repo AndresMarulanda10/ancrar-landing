@@ -1,158 +1,206 @@
-import React from 'react';
-import StarIcon from '../../assets/icons/star.svg?raw';
-import { BCMSImage } from '@thebcms/components-react';
-import type {
-    PropMediaDataParsed,
-    PropRichTextDataParsed,
-} from '@thebcms/types';
-import type { InlineTextWithImageGroup } from '../../../bcms/types/ts';
-import type { ClientConfig } from '@thebcms/client';
-import HomeDivider from './Divider';
-import Btn from '../Btn';
-import ContentManager from '../ContentManager';
-import HomeMap from './Map';
+import type React from "react";
+import HeroImage from "../../assets/Images/hero_image.png";
+import HeroImageMask from "../../assets/Images/hero_image_mask.svg";
+import BlobC1 from "../../assets/Images/c1.svg";
+import BlobC2 from "../../assets/Images/c2.svg";
+import Hand1 from "../../assets/Icons/Слой рисунка.svg?raw";
+import Hand2 from "../../assets/Icons/Слой рисунка-1.svg?raw";
+import Hand3 from "../../assets/Icons/3.svg?raw";
 
-interface Props {
-    title: string;
-    open_time: PropRichTextDataParsed;
-    address: string;
-    map: PropMediaDataParsed;
-    description: InlineTextWithImageGroup[];
-    bcmsConfig: ClientConfig;
-}
+const HomeHero: React.FC = () => {
+	return (
+		<section className="relative bg-[#54BCAC] overflow-hidden min-h-screen">
+			{/* Background blob c2 (azul) - positioned at top-left */}
+			<div className="absolute left-0 top-0 w-[540px] h-[514px] pointer-events-none">
+				<img
+					src={BlobC2.src}
+					alt=""
+					className="block max-w-none w-full h-full"
+				/>
+			</div>
 
-const HomeHero: React.FC<Props> = ({
-    title,
-    open_time,
-    address,
-    map,
-    description,
-    bcmsConfig,
-}) => {
-    return (
-        <section className="pt-10 md:pt-20 lg:pt-[200px]">
-            <div className="container">
-                <div className="relative mb-[14px] lg:mb-12">
-                    <svg
-                        viewBox="0 0 1376 986"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                        className="w-full"
-                    >
-                        <path
-                            d="M0 238.786C403.766 -78.5849 972.234 -78.5849 1376 238.786V986H0V238.786Z"
-                            fill="url(#pattern0)"
-                        />
-                        <defs>
-                            <pattern
-                                id="pattern0"
-                                patternContentUnits="objectBoundingBox"
-                                width="1"
-                                height="1"
-                            >
-                                <use
-                                    xlinkHref="#image0_560_272"
-                                    transform="matrix(0.000558036 0 0 0.000596162 0 -0.301242)"
-                                />
-                            </pattern>
-                            <image
-                                id="image0_560_272"
-                                width="1792"
-                                height="2688"
-                                xlinkHref={`/home-cover.jpg`}
-                            />
-                        </defs>
-                    </svg>
-                    <div className="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-between xl:top-10 xl:w-full">
-                        <div className="flex flex-col items-end max-xl:hidden">
-                            <div className="text-lg leading-none mb-1.5">
-                                {address}
-                            </div>
-                            <HomeMap map={map} bcmConfig={bcmsConfig} />
-                        </div>
-                        <div className="h-px flex-1 bg-[#D9D9D9] mx-4 max-xl:hidden" />
-                        <div className="bg-white px-4 py-[14px] rounded-[128px] max-w-max lg:px-20 lg:py-14">
-                            <div className="flex items-center">
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: StarIcon,
-                                    }}
-                                    className="w-2 h-2 lg:w-12 lg:h-12"
-                                />
-                                <h1 className="text-xl leading-none font-Gloock mx-2.5 lg:text-[80px] lg:leading-none lg:mx-12 2xl:text-[112px] 2xl:leading-none">
-                                    {title}
-                                </h1>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: StarIcon,
-                                    }}
-                                    className="w-2 h-2 lg:w-12 lg:h-12"
-                                />
-                            </div>
-                        </div>
-                        <div className="h-px flex-1 bg-[#D9D9D9] mx-4 max-xl:hidden" />
-                        <ContentManager
-                            items={open_time.nodes}
-                            className="text-sm leading-none text-[#8F8E88] text-right [&_strong]:inline-block [&_strong]:leading-none [&_strong]:font-normal [&_strong]:text-base [&_strong]:text-[#1e293b] [&_strong]:mb-1.5 max-xl:hidden md:[&_strong]:text-lg md:[&_strong]:leading-none lg:text-left"
-                        />
-                    </div>
-                </div>
-                <div className="flex items-start justify-between mb-6 xl:hidden">
-                    <div>
-                        <div className="text-sm leading-none mb-1.5 lg:text-lg lg:leading-none">
-                            {address}
-                        </div>
-                        <HomeMap map={map} bcmConfig={bcmsConfig} />
-                    </div>
-                    <ContentManager
-                        items={open_time.nodes}
-                        className="text-sm leading-none text-[#8F8E88] text-right [&_strong]:inline-block [&_strong]:leading-none [&_strong]:font-normal [&_strong]:text-base [&_strong]:text-[#1e293b] [&_strong]:mb-1.5 md:[&_strong]:text-lg md:[&_strong]:leading-none lg:text-left"
-                    />
-                </div>
-                <div className="homeHero--description mb-6 lg:mb-14">
-                    {description.map((item, index) => {
-                        return (
-                            <React.Fragment key={index}>
-                                {item.text && item.text.nodes.length > 0 && (
-                                    <ContentManager
-                                        items={item.text.nodes}
-                                        className="text-sm leading-[1.3] tracking-[-0.41px] uppercase text-appGray-700 lg:text-[40px] lg:leading-none"
-                                    />
-                                )}
-                                {item.image && (
-                                    <BCMSImage
-                                        media={item.image}
-                                        clientConfig={bcmsConfig}
-                                        className="h-4 flex-shrink-0 mx-2 bg-center bg-cover lg:hidden"
-                                        style={{
-                                            width: `${item.image.width / 5}px`,
-                                        }}
-                                    />
-                                )}
-                                {item.image && (
-                                    <BCMSImage
-                                        media={item.image}
-                                        clientConfig={bcmsConfig}
-                                        className="h-10 flex-shrink-0 mx-4 -translate-y-2 bg-center bg-cover max-lg:hidden"
-                                        style={{
-                                            width: `${item.image.width / 2}px`,
-                                        }}
-                                    />
-                                )}
-                            </React.Fragment>
-                        );
-                    })}
-                </div>
-                <Btn to="/about-us" className="uppercase max-w-max mx-auto">
-                    <span>
-                        Learn more <span className="sr-only">about us</span>
-                    </span>
-                </Btn>
-                <HomeDivider />
-            </div>
-        </section>
-    );
+			{/* Background blob c1 (morado) - rotated 306.95deg */}
+			<div
+				className="absolute left-0 top-0 flex items-center justify-center pointer-events-none"
+				style={{
+					width:
+						"calc((594px * 0.6011181473731995) + (443px * 0.7991601824760437))",
+					height:
+						"calc((594px * 0.7991601824760437) + (443px * 0.6011181473731995))",
+				}}
+			>
+				<div style={{ transform: "rotate(306.95deg)" }}>
+					<div className="relative w-[594px] h-[443px]">
+						<img
+							src={BlobC1.src}
+							alt=""
+							className="block max-w-none w-full h-full"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<div className="container mx-auto px-4 relative z-10 py-16">
+				{/* Title Section - H1 */}
+				<div className="relative mb-12">
+					<h1 className="text-[90px] font-['DM_Serif_Display',serif] text-white leading-[1.003] text-center w-[929px] mx-auto">
+						La aplicación perfecta para aprender Español
+					</h1>
+				</div>
+
+				{/* Hero Image/Phone Section */}
+				<div className="relative flex items-center justify-center h-[600px] mb-16">
+					{/* Phone border/frame - rotated 4.963deg */}
+					<div
+						className="absolute left-0 top-0 flex items-center justify-center"
+						style={{
+							width:
+								"calc((870px * 0.9962501525878906) + (471px * 0.0865192860364914))",
+							height:
+								"calc((870px * 0.0865192860364914) + (471px * 0.9962501525878906))",
+						}}
+					>
+						<div style={{ transform: "rotate(4.963deg)" }}>
+							<div className="bg-[#c4c4c4] border border-solid border-[#142c3c] h-[471px] rounded-[300px] w-[870px]" />
+						</div>
+					</div>
+
+					{/* Phone screen content with hero image and mask - rotated 11.294deg */}
+					<div
+						className="absolute left-0 top-0 flex items-center justify-center z-10"
+						style={{
+							width:
+								"calc((932.890625px * 0.9806340336799622) + (862.703125px * 0.19584940373897552))",
+							height:
+								"calc((932.890625px * 0.19584940373897552) + (862.703125px * 0.9806340336799622))",
+						}}
+					>
+						<div style={{ transform: "rotate(11.294deg)" }}>
+							<div
+								className="h-[862.715px] w-[932.898px] relative"
+								style={{
+									maskImage: `url(${HeroImageMask.src})`,
+									WebkitMaskImage: `url(${HeroImageMask.src})`,
+									maskSize: "868.532px 505.549px",
+									WebkitMaskSize: "868.532px 505.549px",
+									maskPosition: "63.734px 320.28px",
+									WebkitMaskPosition: "63.734px 320.28px",
+									maskRepeat: "no-repeat",
+									WebkitMaskRepeat: "no-repeat",
+								}}
+							>
+								<img
+									src={HeroImage.src}
+									alt="App interface"
+									className="absolute inset-0 max-w-none object-cover object-center pointer-events-none w-full h-full"
+								/>
+							</div>
+						</div>
+					</div>
+
+					{/* Decorative Hand 1 - rotate 302.35deg */}
+					<div className="absolute inset-0 flex items-center justify-center z-20">
+						<div
+							style={{
+								transform: "rotate(302.35deg)",
+								width: "320px",
+								height: "320px",
+							}}
+						>
+							<div
+								className="overflow-clip relative w-full h-full"
+								dangerouslySetInnerHTML={{ __html: Hand1 }}
+							/>
+						</div>
+					</div>
+
+					{/* Decorative Hand 2 - rotate 337.17deg */}
+					<div
+						className="absolute left-0 top-0 flex items-center justify-center z-20"
+						style={{
+							width:
+								"calc((317.453125px * 0.9216626882553101) + (169.3125px * 0.38799211382865906))",
+							height:
+								"calc((317.453125px * 0.38799211382865906) + (169.3125px * 0.9216626882553101))",
+						}}
+					>
+						<div style={{ transform: "rotate(337.17deg)" }}>
+							<div
+								className="h-[169.313px] overflow-clip relative w-[317.463px]"
+								dangerouslySetInnerHTML={{ __html: Hand2 }}
+							/>
+						</div>
+					</div>
+
+					{/* Decorative Hand 3 - rotate 297.401deg */}
+					<div
+						className="absolute left-0 top-0 flex items-center justify-center z-20"
+						style={{
+							width:
+								"calc((254.578125px * 0.46021759510040283) + (254.578125px * 0.8878061771392822))",
+							height:
+								"calc((254.578125px * 0.8878061771392822) + (254.578125px * 0.46021759510040283))",
+						}}
+					>
+						<div style={{ transform: "rotate(297.401deg)" }}>
+							<div
+								className="relative w-[254.587px] h-[254.587px] overflow-clip"
+								dangerouslySetInnerHTML={{ __html: Hand3 }}
+							/>
+						</div>
+					</div>
+				</div>
+
+				{/* Bottom Cards Section - All rotated 6.073deg */}
+				<div className="relative flex justify-center gap-6">
+					{/* Card 1 - ER (Purple) */}
+					<div style={{ transform: "rotate(6.073deg)" }}>
+						<div className="bg-[#ac7cdc] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
+							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
+								ER
+							</p>
+						</div>
+					</div>
+
+					{/* Card 2 - AR (Teal) */}
+					<div style={{ transform: "rotate(6.073deg)" }}>
+						<div className="bg-[#54bcac] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
+							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
+								AR
+							</p>
+						</div>
+					</div>
+
+					{/* Card 3 - ER (Purple) */}
+					<div style={{ transform: "rotate(6.073deg)" }}>
+						<div className="bg-[#ac7cdc] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
+							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
+								ER
+							</p>
+						</div>
+					</div>
+
+					{/* Card 4 - IR (Teal) */}
+					<div style={{ transform: "rotate(6.073deg)" }}>
+						<div className="bg-[#54bcac] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
+							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
+								IR
+							</p>
+						</div>
+					</div>
+
+					{/* Card 5 - ER (Purple) */}
+					<div style={{ transform: "rotate(6.073deg)" }}>
+						<div className="bg-[#ac7cdc] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
+							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
+								ER
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default HomeHero;

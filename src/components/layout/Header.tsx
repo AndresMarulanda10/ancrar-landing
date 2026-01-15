@@ -1,105 +1,83 @@
-import React, { useEffect, useRef, useState } from 'react';
-import MenuIcon from '../../assets/icons/menu.svg?raw';
-import XIcon from '../../assets/icons/x.svg?raw';
-import Logo from '../../assets/icons/logo.svg?raw';
-import InstagramIcon from '../../assets/icons/instagram.svg?raw';
-import LinkedInIcon from '../../assets/icons/linkedin.svg?raw';
-import WhatsAppIcon from '../../assets/icons/whatsapp.svg?raw';
-import classNames from 'classnames';
-import Btn from '../Btn';
+import type React from "react";
+import XIcon from "../../assets/Icons/003-twitter 1.svg?raw";
+import Logo from "../../assets/Icons/Logo.svg?raw";
+import InstagramIcon from "../../assets/Icons/004-instagram 1.svg?raw";
+import LinkedInIcon from "../../assets/Icons/linkedin-3 1.svg?raw";
+import PinterestIcon from "../../assets/Icons/002-pinterest 1.svg?raw";
 
 const Header: React.FC = () => {
-    const navItemsDOM = useRef<HTMLDivElement | null>(null);
-    const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+	const nav = [
+		{
+			label: "About",
+			href: "/#about",
+		},
+		{
+			label: "Brands",
+			href: "/#brands",
+		},
+		{
+			label: "Coaching",
+			href: "/#coaching",
+		},
+	];
 
-    const nav = [
-        {
-            label: 'About',
-            href: '/#about',
-        },
-        {
-            label: 'Feats',
-            href: '/#feats',
-        },
-        {
-            label: 'Pricing',
-            href: '/#pricing',
-        },
-    ];
+	const socialLinks = [
+		{ icon: XIcon, href: "https://twitter.com", label: "Twitter" },
+		{ icon: InstagramIcon, href: "https://instagram.com", label: "Instagram" },
+		{ icon: LinkedInIcon, href: "https://linkedin.com", label: "LinkedIn" },
+		{ icon: PinterestIcon, href: "https://pinterest.com", label: "Pinterest" },
+	];
 
-    useEffect(() => {
-        const handleMobileNavClickOutside = (event: MouseEvent) => {
-            const navItemsEl = navItemsDOM.current;
-
-            if (navItemsEl && !navItemsEl.contains(event.target as Node)) {
-                setShowMobileMenu(false);
-            }
-        };
-
-        if (showMobileMenu) {
-            document.addEventListener('click', handleMobileNavClickOutside);
-        } else {
-            document.removeEventListener('click', handleMobileNavClickOutside);
-        }
-
-        return () => {
-            document.removeEventListener('click', handleMobileNavClickOutside);
-        };
-    }, [showMobileMenu]);
-
-    return (
-        <header className="relative z-50">
-            <div className="relative z-10 container">
-                <nav className="relative flex items-center justify-between pt-6 lg:pt-8">
-                    {/* Nav izquierda */}
-                    <ul className="flex flex-row gap-8 items-center">
-                        {nav.map((item, index) => (
-                            <li key={index}>
-                                <a
-                                    href={item.href}
-                                    className="text-lg leading-none tracking-[-0.41px] uppercase md:text-sm"
-                                >
-                                    {item.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                    {/* Logo centrado */}
-                    <a
-                        href="/"
-                        className="flex justify-center flex-1"
-                        aria-label="Home page"
-                    >
-                        <div
-                            dangerouslySetInnerHTML={{ __html: Logo }}
-                            className={classNames('w-[60px] md:w-[101px]', {
-                                'max-md:grayscale-0 max-md:brightness-[0.2] max-md:invert-0':
-                                    showMobileMenu,
-                            })}
-                        />
-                    </a>
-                    {/* Redes sociales derecha */}
-                    <div className="flex flex-row gap-4 items-center">
-                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
-                            <div dangerouslySetInnerHTML={{ __html: XIcon }} style={{ width: 24, height: 24 }} />
-                        </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-                            <div dangerouslySetInnerHTML={{ __html: InstagramIcon }} style={{ width: 24, height: 24 }} />
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <div dangerouslySetInnerHTML={{ __html: LinkedInIcon }} style={{ width: 24, height: 24 }} />
-                        </a>
-                        <a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp">
-                            <div dangerouslySetInnerHTML={{ __html: WhatsAppIcon }} style={{ width: 24, height: 24 }} />
-                        </a>
-                    </div>
-                </nav>
-            </div>
-            {showMobileMenu && (
-                <div className="fixed top-0 left-0 w-screen h-screen bg-appAccent md:hidden" />
-            )}
-        </header>
-    );
+	return (
+		<header className="relative z-50 bg-[#54BCAC]">
+			<div className="relative h-[98px] max-w-[1440px] mx-auto px-[60px]">
+				<nav className="relative h-full flex items-center">
+					{/* Nav izquierda - posicionamiento absoluto */}
+					<ul className="absolute left-[60px] top-1/2 -translate-y-1/2 flex flex-row gap-[60px] items-start">
+						{nav.map((item) => (
+							<li key={item.label}>
+								<a
+									href={item.href}
+									className="text-white font-['Lato',sans-serif] text-[17px] leading-normal hover:opacity-80 transition-opacity"
+								>
+									{item.label}
+								</a>
+							</li>
+						))}
+					</ul>
+					{/* Logo centrado - posicionamiento absoluto */}
+					<a
+						href="/"
+						className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+						aria-label="Home page"
+					>
+						<div
+							dangerouslySetInnerHTML={{ __html: Logo }}
+							className="w-[183px] h-[70px]"
+						/>
+					</a>
+					{/* Redes sociales derecha - posicionamiento absoluto */}
+					<div className="absolute right-[60px] top-1/2 -translate-y-1/2 flex flex-row gap-[40px] items-start">
+						{socialLinks.map((social) => (
+							<a
+								key={social.label}
+								href={social.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={social.label}
+								className="hover:opacity-80 transition-opacity"
+							>
+								<div
+									dangerouslySetInnerHTML={{ __html: social.icon }}
+									className="w-6 h-6"
+								/>
+							</a>
+						))}
+					</div>
+				</nav>
+			</div>
+		</header>
+	);
 };
 
 export default Header;

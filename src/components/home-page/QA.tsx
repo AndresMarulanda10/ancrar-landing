@@ -1,20 +1,151 @@
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { faqs } from "../../content/home";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const QA: React.FC = () => {
 	const [openIndex, setOpenIndex] = useState<number | null>(null);
+	const sectionRef = useRef<HTMLElement>(null);
+	const answerRefs = useRef<Array<HTMLDivElement | null>>([]);
+	const previousOpenIndex = useRef<number | null>(null);
+
+	useEffect(() => {
+		const section = sectionRef.current;
+
+		if (!section) return;
+
+		const heading = section.querySelector<HTMLElement>("[data-faq-heading]");
+		const rows = gsap.utils.toArray<HTMLElement>("[data-faq-row]", section);
+		const revealTargets = [heading, ...rows].filter(
+			(element): element is HTMLElement => Boolean(element),
+		);
+		const media = gsap.matchMedia();
+		const context = gsap.context(() => {
+			media.add("(prefers-reduced-motion: reduce)", () => {
+				gsap.set(revealTargets, { autoAlpha: 1, y: 0 });
+			});
+
+			media.add("(prefers-reduced-motion: no-preference)", () => {
+				gsap
+					.timeline({
+						scrollTrigger: {
+							trigger: section,
+							start: "top 82%",
+							once: true,
+						},
+					})
+					.from(heading, {
+						autoAlpha: 0,
+						duration: 0.6,
+						ease: "power2.out",
+						y: 18,
+					})
+					.from(
+						rows,
+						{
+							autoAlpha: 0,
+							duration: 0.5,
+							ease: "power2.out",
+							stagger: 0.06,
+							y: 16,
+						},
+						"<0.12",
+					);
+			});
+		}, section);
+
+		return () => {
+			context.revert();
+			media.revert();
+		};
+	}, []);
+
+	useEffect(() => {
+		const answers = answerRefs.current.filter(
+			(answer): answer is HTMLDivElement => Boolean(answer),
+		);
+		const previousIndex = previousOpenIndex.current;
+		const prefersReducedMotion = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
+		let timeline: gsap.core.Timeline | undefined;
+
+		if (prefersReducedMotion) {
+			answers.forEach((answer, index) => {
+				const isOpen = index === openIndex;
+
+				gsap.set(answer, {
+					height: isOpen ? "auto" : 0,
+					opacity: isOpen ? 1 : 0,
+					paddingBottom: isOpen ? "1.5rem" : 0,
+					visibility: isOpen ? "visible" : "hidden",
+				});
+			});
+		} else {
+			timeline = gsap.timeline({
+				defaults: { duration: 0.28, ease: "power2.out" },
+			});
+
+			if (previousIndex !== null && previousIndex !== openIndex) {
+				const previousAnswer = answerRefs.current[previousIndex];
+
+				if (previousAnswer) {
+					timeline.to(previousAnswer, {
+						height: 0,
+						opacity: 0,
+						paddingBottom: 0,
+						visibility: "hidden",
+					});
+				}
+			}
+
+			if (openIndex !== null && openIndex !== previousIndex) {
+				const answer = answerRefs.current[openIndex];
+
+				if (answer) {
+					timeline.fromTo(
+						answer,
+						{
+							height: 0,
+							opacity: 0,
+							paddingBottom: 0,
+							visibility: "hidden",
+						},
+						{
+							height: "auto",
+							opacity: 1,
+							paddingBottom: "1.5rem",
+							visibility: "visible",
+						},
+						previousIndex !== null ? "<0.04" : undefined,
+					);
+				}
+			}
+		}
+
+		previousOpenIndex.current = openIndex;
+
+		return () => {
+			timeline?.kill();
+		};
+	}, [openIndex]);
 
 	const toggleFAQ = (index: number) => {
 		setOpenIndex(openIndex === index ? null : index);
 	};
 
 	return (
-		<section id="faq" className="relative bg-[#F4F4F4] py-20">
+		<section ref={sectionRef} id="faq" className="relative bg-[#F4F4F4] py-20">
 			<div className="container mx-auto px-4">
 				<div className="max-w-5xl mx-auto">
 					{/* Section Title */}
-					<h2 className="font-['DM_Serif_Display',serif] text-4xl lg:text-5xl text-[#54BCAC] mb-12 uppercase">
+					<h2
+						data-faq-heading
+						className="font-['DM_Serif_Display',serif] text-4xl lg:text-5xl text-[#54BCAC] mb-12 uppercase"
+					>
 						ANCRAR FAQ
 					</h2>
 
@@ -23,6 +154,7 @@ const QA: React.FC = () => {
 						{faqs.map((faq, index) => (
 							<div
 								key={faq.id}
+								data-faq-row
 								className="bg-white border-b-2 border-gray-300 rounded-lg overflow-hidden"
 							>
 								{/* Question Button */}
@@ -74,8 +206,17 @@ const QA: React.FC = () => {
 								{/* Answer */}
 								<div
 									id={`faq-answer-${faq.id}`}
-									hidden={openIndex !== index}
-									className="px-6 pb-6"
+									ref={(element) => {
+										answerRefs.current[index] = element;
+									}}
+									aria-hidden={openIndex !== index}
+									className="overflow-hidden px-6"
+									style={{
+										height: 0,
+										opacity: 0,
+										paddingBottom: 0,
+										visibility: "hidden",
+									}}
 								>
 									<p className="text-[#142C3C] font-['Lato',sans-serif] text-base lg:text-lg leading-relaxed">
 										{faq.answer}

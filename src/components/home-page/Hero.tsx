@@ -45,12 +45,18 @@ const HomeHero: React.FC = () => {
 								/>
 							</div>
 						</div>
-						<div className="absolute -bottom-8 left-4 z-20 flex -rotate-6 gap-3 sm:-bottom-10 sm:left-8 sm:gap-4">
-							<div className="flex aspect-square w-20 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#AC7CDC] shadow-[5px_6px_0_#142C3C] sm:w-28">
-								<span className="font-['DM_Serif_Display',serif] text-4xl italic text-white sm:text-5xl">AR</span>
+						<div className="absolute -bottom-8 left-2 right-2 z-20 grid grid-cols-4 gap-2 -rotate-6 sm:-bottom-10 sm:left-8 sm:right-auto sm:flex sm:gap-4">
+							<div className="flex aspect-square min-w-0 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#AC7CDC] shadow-[5px_6px_0_#142C3C] sm:w-28">
+								<span className="font-['DM_Serif_Display',serif] text-2xl italic text-[#142C3C] sm:text-5xl">AR</span>
 							</div>
-							<div className="mt-4 flex aspect-square w-20 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#142C3C] shadow-[5px_6px_0_#AC7CDC] sm:w-28">
-								<span className="font-['DM_Serif_Display',serif] text-4xl italic text-white sm:text-5xl">ER</span>
+							<div className="mt-4 flex aspect-square min-w-0 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#142C3C] shadow-[5px_6px_0_#AC7CDC] sm:w-28">
+								<span className="font-['DM_Serif_Display',serif] text-2xl italic text-white sm:text-5xl">ER</span>
+							</div>
+							<div className="flex aspect-square min-w-0 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#54BCAC] shadow-[5px_6px_0_#142C3C] sm:w-28">
+								<span className="font-['DM_Serif_Display',serif] text-2xl italic text-[#142C3C] sm:text-5xl">IR</span>
+							</div>
+							<div className="mt-4 flex aspect-square min-w-0 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#F4F4F4] shadow-[5px_6px_0_#AC7CDC] sm:w-28">
+								<span className="font-['DM_Serif_Display',serif] text-base italic text-[#142C3C] sm:text-3xl">ANDO</span>
 							</div>
 						</div>
 					</div>

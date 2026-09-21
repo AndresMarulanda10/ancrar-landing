@@ -1,23 +1,30 @@
-# BCMS Restaurant code starter for Astro.js
+# ANCRAR Landing Page
 
-This is an Astro.js starter kit for BCMS, a headless CMS. It's minimal but solid, with a clean codebase that hooks directly into your BCMS project, ready to extend and scale as needed.
+Static Astro landing page for ANCRAR, a Spanish verb-conjugation practice app. The homepage is self-contained and requires no external services to develop or build.
 
-## Getting Started
-
-Run the following command
+## Development
 
 ```bash
-npx @thebcms/cli create astro starter restaurant
+npm install
+npm run dev
 ```
 
-and follow the prompts.
+Astro serves the site locally with live reload.
 
----
+## Commands
 
-### Useful links:
+```bash
+npm run check
+npm run build
+npm run preview
+```
 
--   [BCMS website](https://thebcms.com/)
--   [BCMS documentation](https://thebcms.com/docs/)
--   [BCMS and Astro integration](https://thebcms.com/docs/integrations/astro)
--   [All BCMS starters](https://thebcms.com/starters)
--   [Join our Discord](https://discord.com/invite/SYBY89ccaR)
+The production site is generated in `dist`.
+
+## Optional Site URL
+
+Copy `.env.example` to `.env` and set `PUBLIC_SITE_URL` when the production domain is known. It is used for canonical and social preview URLs; the project uses its Vercel URL by default.
+
+## Vercel
+
+Import the repository into Vercel. Use `npm run build` as the build command and `dist` as the output directory. No Vercel adapter is required because the site uses Astro's static output.

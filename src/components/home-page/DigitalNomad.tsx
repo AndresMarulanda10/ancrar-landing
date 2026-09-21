@@ -1,90 +1,43 @@
 import type React from "react";
 
 const DigitalNomad: React.FC = () => {
-	const sections = [
-		{
-			id: 1,
-			label: "01",
-			title: "Digital Nomad",
-			description:
-				"Embrace the freedom of working from anywhere in the world. Learn how to build a sustainable remote career, manage finances across borders, and create the lifestyle you dream of. Whether you want to explore new cultures or simply work from your favorite cafe, this is your guide to making it happen.",
-			buttonText: "Start Your Journey",
-			buttonColor: "#54BCAC",
-		},
-		{
-			id: 2,
-			label: "02",
-			title: "Digital Nomad",
-			description:
-				"Master the art of location independence. Discover the best tools, practices, and mindsets for thriving as a digital nomad. From visa requirements to co-working spaces, from time zone management to maintaining work-life balance, get everything you need to succeed in this exciting lifestyle.",
-			buttonText: "Explore More",
-			buttonColor: "#AC7CDC",
-		},
-	];
-
 	return (
-		<section className="relative bg-white py-20 overflow-hidden">
-			{/* Decorative blob */}
-			<div className="absolute left-[-200px] top-20 w-[600px] h-[600px] opacity-15 pointer-events-none">
-				<div className="w-full h-full bg-[#AC7CDC] rounded-[50%] blur-3xl transform rotate-45" />
-			</div>
+		<section className="bg-[#EAF7F4] py-16 sm:py-20 lg:py-24">
+			<div className="container mx-auto px-5 sm:px-8">
+				<div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+					<div>
+						<p className="mb-3 font-['Lato',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#AC7CDC]">
+							A flexible rhythm
+						</p>
+						<h2 className="font-['DM_Serif_Display',serif] text-4xl leading-tight text-[#142C3C] sm:text-5xl">
+							How it fits your learning
+						</h2>
+					</div>
 
-			<div className="container mx-auto px-4 relative z-10">
-				<div className="max-w-6xl mx-auto space-y-16">
-					{sections.map((section, index) => (
-						<div
-							key={section.id}
-							className={`flex flex-col lg:flex-row items-center gap-8 ${
-								index % 2 === 0 ? "" : "lg:flex-row-reverse"
-							}`}
-						>
-							{/* Phone Mockup Placeholder */}
-							<div className="flex-shrink-0">
-								<div className="w-[280px] lg:w-[320px] h-[500px] lg:h-[600px] bg-white border-[12px] lg:border-[16px] border-[#1B1B1B] rounded-[40px] shadow-2xl overflow-hidden relative">
-									{/* Decorative elements inside phone */}
-									<div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-8">
-										<div className="text-center">
-											<div className="w-24 h-24 bg-gradient-to-br from-[#54BCAC] to-[#AC7CDC] rounded-full mx-auto mb-4" />
-											<p className="text-gray-400 font-['DM_Serif_Display',serif] text-lg">
-												App Interface
-											</p>
-										</div>
-									</div>
-								</div>
+					<div className="grid gap-4 sm:grid-cols-3">
+						{["5 minutes", "10 minutes", "15 minutes"].map((duration, index) => (
+							<div
+								key={duration}
+								className={`rounded-3xl border-2 border-[#142C3C] p-5 ${index === 1 ? "bg-[#AC7CDC]" : "bg-white"}`}
+							>
+								<p className="font-['DM_Serif_Display',serif] text-3xl text-[#142C3C] sm:text-4xl">
+									{duration.split(" ")[0]}
+								</p>
+								<p className="mt-1 font-['Lato',sans-serif] text-sm font-bold uppercase tracking-[0.1em] text-[#142C3C]/70">
+									minutes
+								</p>
 							</div>
+						))}
+					</div>
+				</div>
 
-							{/* Content Card */}
-							<div className="flex-1">
-								<div className="bg-[#F4F4F4] border-4 border-[#142C3C] rounded-[60px] p-10 lg:p-12">
-									{/* Label */}
-									<p className="text-[#142C3C] font-['DM_Serif_Display',serif] text-2xl mb-2">
-										{section.label}
-									</p>
-
-									{/* Title */}
-									<h3 className="text-[#142C3C] font-['DM_Serif_Display',serif] text-4xl lg:text-5xl mb-6">
-										{section.title}
-									</h3>
-
-									{/* Description */}
-									<p className="text-[#142C3C] font-['Lato',sans-serif] text-lg leading-relaxed mb-8">
-										{section.description}
-									</p>
-
-									{/* Button */}
-									<button
-										type="button"
-										className="border-4 border-[#142C3C] rounded-[60px] px-10 py-4 transition-transform hover:scale-105"
-										style={{ backgroundColor: section.buttonColor }}
-									>
-										<span className="text-[#142C3C] font-['DM_Serif_Display',serif] text-xl">
-											{section.buttonText}
-										</span>
-									</button>
-								</div>
-							</div>
-						</div>
-					))}
+				<div className="mt-12 grid gap-4 border-t-2 border-[#142C3C]/15 pt-8 sm:grid-cols-2 sm:gap-8">
+					<p className="font-['DM_Serif_Display',serif] text-2xl leading-tight text-[#142C3C]">
+						Practice the most relevant Spanish tenses. Choose your focus and set the duration of each session: 5, 10, or 15 minutes.
+					</p>
+					<p className="font-['Lato',sans-serif] text-base leading-7 text-[#142C3C]/75">
+						Use it alongside classes, self-study, or immersion experiences.
+					</p>
 				</div>
 			</div>
 		</section>

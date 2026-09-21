@@ -1,200 +1,56 @@
 import type React from "react";
 import HeroImage from "../../assets/Images/hero_image.png";
-import HeroImageMask from "../../assets/Images/hero_image_mask.svg";
 import BlobC1 from "../../assets/Images/c1.svg";
 import BlobC2 from "../../assets/Images/c2.svg";
-import Hand1 from "../../assets/Icons/Слой рисунка.svg?raw";
-import Hand2 from "../../assets/Icons/Слой рисунка-1.svg?raw";
-import Hand3 from "../../assets/Icons/3.svg?raw";
 
 const HomeHero: React.FC = () => {
 	return (
-		<section className="relative bg-[#54BCAC] overflow-hidden min-h-screen">
-			{/* Background blob c2 (azul) - positioned at top-left */}
-			<div className="absolute left-0 top-0 w-[540px] h-[514px] pointer-events-none">
-				<img
-					src={BlobC2.src}
-					alt=""
-					className="block max-w-none w-full h-full"
-				/>
+		<section className="relative overflow-hidden bg-[#54BCAC] text-[#142C3C]">
+			<div className="pointer-events-none absolute -left-32 -top-24 hidden h-[min(42vw,430px)] w-[min(42vw,450px)] sm:block">
+				<img src={BlobC2.src} alt="" className="h-full w-full object-contain opacity-45" />
+			</div>
+			<div className="pointer-events-none absolute -bottom-40 -right-36 hidden h-[min(45vw,500px)] w-[min(55vw,620px)] sm:block">
+				<img src={BlobC1.src} alt="" className="h-full w-full rotate-12 object-contain opacity-30" />
 			</div>
 
-			{/* Background blob c1 (morado) - rotated 306.95deg */}
-			<div
-				className="absolute left-0 top-0 flex items-center justify-center pointer-events-none"
-				style={{
-					width:
-						"calc((594px * 0.6011181473731995) + (443px * 0.7991601824760437))",
-					height:
-						"calc((594px * 0.7991601824760437) + (443px * 0.6011181473731995))",
-				}}
-			>
-				<div style={{ transform: "rotate(306.95deg)" }}>
-					<div className="relative w-[594px] h-[443px]">
-						<img
-							src={BlobC1.src}
-							alt=""
-							className="block max-w-none w-full h-full"
-						/>
-					</div>
-				</div>
-			</div>
-
-			<div className="container mx-auto px-4 relative z-10 py-16">
-				{/* Title Section - H1 */}
-				<div className="relative mb-12">
-					<h1 className="text-[90px] font-['DM_Serif_Display',serif] text-white leading-[1.003] text-center w-[929px] mx-auto">
-						La aplicación perfecta para aprender Español
-					</h1>
-				</div>
-
-				{/* Hero Image/Phone Section */}
-				<div className="relative flex items-center justify-center h-[600px] mb-16">
-					{/* Phone border/frame - rotated 4.963deg */}
-					<div
-						className="absolute left-0 top-0 flex items-center justify-center"
-						style={{
-							width:
-								"calc((870px * 0.9962501525878906) + (471px * 0.0865192860364914))",
-							height:
-								"calc((870px * 0.0865192860364914) + (471px * 0.9962501525878906))",
-						}}
-					>
-						<div style={{ transform: "rotate(4.963deg)" }}>
-							<div className="bg-[#c4c4c4] border border-solid border-[#142c3c] h-[471px] rounded-[300px] w-[870px]" />
-						</div>
+			<div className="container relative z-10 mx-auto px-5 pb-28 pt-14 sm:px-8 sm:pb-32 md:py-20 lg:py-24">
+				<div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+					<div className="max-w-xl">
+						<p className="mb-5 font-['Lato',sans-serif] text-sm font-bold uppercase tracking-[0.24em] text-white/75">
+							ANCRAR
+						</p>
+						<h1 className="font-['DM_Serif_Display',serif] text-5xl leading-[0.98] text-white sm:text-6xl lg:text-7xl">
+							Master Spanish verb conjugations with Ancrar: learn through play.
+						</h1>
+						<p className="mt-7 max-w-lg font-['Lato',sans-serif] text-base leading-7 text-white/85 sm:text-lg">
+							Understand and memorize Spanish verb conjugations through a card-game-style system.
+						</p>
+						<a
+							href="/#features"
+							className="mt-8 inline-flex items-center gap-3 rounded-full border-2 border-[#142C3C] bg-white px-6 py-3 font-['Lato',sans-serif] text-sm font-bold text-[#142C3C] transition-transform hover:-translate-y-1"
+						>
+							Explore the features
+							<span aria-hidden="true">-&gt;</span>
+						</a>
 					</div>
 
-					{/* Phone screen content with hero image and mask - rotated 11.294deg */}
-					<div
-						className="absolute left-0 top-0 flex items-center justify-center z-10"
-						style={{
-							width:
-								"calc((932.890625px * 0.9806340336799622) + (862.703125px * 0.19584940373897552))",
-							height:
-								"calc((932.890625px * 0.19584940373897552) + (862.703125px * 0.9806340336799622))",
-						}}
-					>
-						<div style={{ transform: "rotate(11.294deg)" }}>
-							<div
-								className="h-[862.715px] w-[932.898px] relative"
-								style={{
-									maskImage: `url(${HeroImageMask.src})`,
-									WebkitMaskImage: `url(${HeroImageMask.src})`,
-									maskSize: "868.532px 505.549px",
-									WebkitMaskSize: "868.532px 505.549px",
-									maskPosition: "63.734px 320.28px",
-									WebkitMaskPosition: "63.734px 320.28px",
-									maskRepeat: "no-repeat",
-									WebkitMaskRepeat: "no-repeat",
-								}}
-							>
+					<div className="relative mx-auto w-full max-w-[650px]">
+						<div className="relative z-10 rotate-[-2deg] rounded-[2rem] border-4 border-[#142C3C] bg-[#F4F4F4] p-2 shadow-[12px_14px_0_#142C3C] sm:p-3">
+							<div className="aspect-[1.72] overflow-hidden rounded-[1.5rem] border-2 border-[#142C3C] bg-white">
 								<img
 									src={HeroImage.src}
-									alt="App interface"
-									className="absolute inset-0 max-w-none object-cover object-center pointer-events-none w-full h-full"
+									alt="Ancrar app interface"
+									className="h-full w-full object-cover object-center"
 								/>
 							</div>
 						</div>
-					</div>
-
-					{/* Decorative Hand 1 - rotate 302.35deg */}
-					<div className="absolute inset-0 flex items-center justify-center z-20">
-						<div
-							style={{
-								transform: "rotate(302.35deg)",
-								width: "320px",
-								height: "320px",
-							}}
-						>
-							<div
-								className="overflow-clip relative w-full h-full"
-								dangerouslySetInnerHTML={{ __html: Hand1 }}
-							/>
-						</div>
-					</div>
-
-					{/* Decorative Hand 2 - rotate 337.17deg */}
-					<div
-						className="absolute left-0 top-0 flex items-center justify-center z-20"
-						style={{
-							width:
-								"calc((317.453125px * 0.9216626882553101) + (169.3125px * 0.38799211382865906))",
-							height:
-								"calc((317.453125px * 0.38799211382865906) + (169.3125px * 0.9216626882553101))",
-						}}
-					>
-						<div style={{ transform: "rotate(337.17deg)" }}>
-							<div
-								className="h-[169.313px] overflow-clip relative w-[317.463px]"
-								dangerouslySetInnerHTML={{ __html: Hand2 }}
-							/>
-						</div>
-					</div>
-
-					{/* Decorative Hand 3 - rotate 297.401deg */}
-					<div
-						className="absolute left-0 top-0 flex items-center justify-center z-20"
-						style={{
-							width:
-								"calc((254.578125px * 0.46021759510040283) + (254.578125px * 0.8878061771392822))",
-							height:
-								"calc((254.578125px * 0.8878061771392822) + (254.578125px * 0.46021759510040283))",
-						}}
-					>
-						<div style={{ transform: "rotate(297.401deg)" }}>
-							<div
-								className="relative w-[254.587px] h-[254.587px] overflow-clip"
-								dangerouslySetInnerHTML={{ __html: Hand3 }}
-							/>
-						</div>
-					</div>
-				</div>
-
-				{/* Bottom Cards Section - All rotated 6.073deg */}
-				<div className="relative flex justify-center gap-6">
-					{/* Card 1 - ER (Purple) */}
-					<div style={{ transform: "rotate(6.073deg)" }}>
-						<div className="bg-[#ac7cdc] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
-							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
-								ER
-							</p>
-						</div>
-					</div>
-
-					{/* Card 2 - AR (Teal) */}
-					<div style={{ transform: "rotate(6.073deg)" }}>
-						<div className="bg-[#54bcac] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
-							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
-								AR
-							</p>
-						</div>
-					</div>
-
-					{/* Card 3 - ER (Purple) */}
-					<div style={{ transform: "rotate(6.073deg)" }}>
-						<div className="bg-[#ac7cdc] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
-							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
-								ER
-							</p>
-						</div>
-					</div>
-
-					{/* Card 4 - IR (Teal) */}
-					<div style={{ transform: "rotate(6.073deg)" }}>
-						<div className="bg-[#54bcac] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
-							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
-								IR
-							</p>
-						</div>
-					</div>
-
-					{/* Card 5 - ER (Purple) */}
-					<div style={{ transform: "rotate(6.073deg)" }}>
-						<div className="bg-[#ac7cdc] border-[#142c3c] border-[3.292px] border-solid h-[293px] rounded-[29.629px] w-[286.416px] flex items-center justify-center">
-							<p className="font-['DM_Serif_Display',serif] italic text-[#f4f4f4] text-[79.011px] leading-none">
-								ER
-							</p>
+						<div className="absolute -bottom-8 left-4 z-20 flex -rotate-6 gap-3 sm:-bottom-10 sm:left-8 sm:gap-4">
+							<div className="flex aspect-square w-20 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#AC7CDC] shadow-[5px_6px_0_#142C3C] sm:w-28">
+								<span className="font-['DM_Serif_Display',serif] text-4xl italic text-white sm:text-5xl">AR</span>
+							</div>
+							<div className="mt-4 flex aspect-square w-20 items-center justify-center rounded-2xl border-2 border-[#142C3C] bg-[#142C3C] shadow-[5px_6px_0_#AC7CDC] sm:w-28">
+								<span className="font-['DM_Serif_Display',serif] text-4xl italic text-white sm:text-5xl">ER</span>
+							</div>
 						</div>
 					</div>
 				</div>

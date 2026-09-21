@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>ANCRAR</title>
+  <rect width="64" height="64" rx="16" fill="#54BCAC"/>
+  <circle cx="32" cy="22" r="9" fill="none" stroke="#142C3C" stroke-width="5"/>
+  <path d="M32 31v17M22 42c2.7 4.2 6.1 6.3 10 6.3s7.3-2.1 10-6.3M25 48h14" fill="none" stroke="#142C3C" stroke-linecap="round" stroke-width="5"/>
+  <path d="M20 35h24" stroke="#AC7CDC" stroke-linecap="round" stroke-width="5"/>
+</svg>

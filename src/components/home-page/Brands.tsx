@@ -1,38 +1,30 @@
 import type React from "react";
-import AngelHackLogo from "../../assets/Images/angelhack-logo 1.png";
 
 const Brands: React.FC = () => {
-	// Brand logos array
-	const brands = [
-		{ id: 1, name: "AngelHack", logo: AngelHackLogo },
-		{ id: 2, name: "AngelHack", logo: AngelHackLogo },
-		{ id: 3, name: "AngelHack", logo: AngelHackLogo },
-		{ id: 4, name: "AngelHack", logo: AngelHackLogo },
-	];
-
 	return (
-		<section className="relative bg-white py-16">
-			<div className="container mx-auto px-4">
-				{/* Section Title */}
-				<h2 className="text-center font-['DM_Serif_Display',serif] text-3xl lg:text-4xl text-[#AC7CDC] mb-12">
-					Trabajos & Alianzas
-				</h2>
-
-				{/* Brands Grid */}
-				<div className="flex flex-wrap items-center justify-center gap-12 lg:gap-16 max-w-5xl mx-auto">
-					{brands.map((brand) => (
-						<div
-							key={brand.id}
-							className="w-[172px] h-[62px] flex items-center justify-center"
-						>
-							{/* Brand logo */}
-							<img
-								src={brand.logo.src}
-								alt={brand.name}
-								className="w-full h-auto object-contain"
-							/>
+		<section className="bg-[#142C3C] py-16 text-white sm:py-20 lg:py-24">
+			<div className="container mx-auto px-5 sm:px-8">
+				<div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+					<div>
+						<p className="mb-3 font-['Lato',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#54BCAC]">
+							Made to meet you where you are
+						</p>
+						<h2 className="font-['DM_Serif_Display',serif] text-4xl leading-tight sm:text-5xl">
+							One practice, different learning contexts.
+						</h2>
+					</div>
+					<div>
+						<p className="max-w-2xl font-['Lato',sans-serif] text-lg leading-8 text-white/75">
+							Ancrar serves students, travelers, professionals, and multicultural companies.
+						</p>
+						<div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+							{["Students", "Travelers", "Professionals", "Multicultural companies"].map((audience) => (
+								<div key={audience} className="rounded-2xl border border-white/30 px-4 py-5 font-['DM_Serif_Display',serif] text-lg text-white sm:text-xl">
+									{audience}
+								</div>
+							))}
 						</div>
-					))}
+					</div>
 				</div>
 			</div>
 		</section>

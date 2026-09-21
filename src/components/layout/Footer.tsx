@@ -1,98 +1,32 @@
 import type React from "react";
-import Ellipse4Icon from "../../assets/Icons/Ellipse 4.svg?raw";
-import F4Icon from "../../assets/Icons/F4.svg?raw";
 
 const Footer: React.FC = () => {
-	const features = [
-		"Selfmade",
-		"Business Class",
-		"Co Active Training Institute",
-		"Search Inside Yourself Institute",
-	];
-
 	return (
-		<footer className="relative bg-white py-20 overflow-hidden">
-			{/* Decorative F4 icon top left */}
-			<div
-				className="absolute left-0 top-0 w-[142px] h-[136px] opacity-60"
-				dangerouslySetInnerHTML={{ __html: F4Icon }}
-			/>
-
-			{/* Decorative blob */}
-			<div className="absolute right-[-100px] top-20 w-[500px] h-[500px] opacity-20 pointer-events-none">
-				<div className="w-full h-full bg-[#AC7CDC] rounded-[50%] blur-3xl" />
-			</div>
-
-			<div className="container mx-auto px-4 relative z-10">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-					{/* Left Side - Features List */}
+		<footer className="bg-white py-14 sm:py-18">
+			<div className="container mx-auto px-5 sm:px-8">
+				<div className="grid gap-10 border-b-2 border-[#142C3C]/10 pb-10 sm:grid-cols-[1.4fr_1fr_1fr]">
 					<div>
-						<h2 className="text-[#142C3C] font-['DM_Serif_Display',serif] text-4xl lg:text-5xl mb-8">
-							Training &<br />
-							Education
-						</h2>
-
-						<ul className="space-y-4">
-							{features.map((feature, index) => (
-								<li key={index} className="flex items-center gap-3">
-									<div
-										className="w-6 h-6 flex-shrink-0"
-										dangerouslySetInnerHTML={{ __html: Ellipse4Icon }}
-									/>
-									<span className="text-[#142C3C] font-['Lato',sans-serif] text-lg">
-										{feature}
-									</span>
-								</li>
-							))}
-						</ul>
+						<p className="font-['DM_Serif_Display',serif] text-4xl text-[#142C3C]">ANCRAR</p>
+						<p className="mt-3 max-w-xs font-['Lato',sans-serif] text-sm leading-6 text-[#142C3C]/65">
+							Spanish, anchored in memory.
+						</p>
 					</div>
-
-					{/* Right Side - CTA Card */}
-					<div className="relative">
-						{/* Decorative blob behind card */}
-						<div className="absolute inset-0 bg-white border-4 border-[#142C3C] rounded-[100px] transform rotate-3" />
-
-						{/* Main CTA Card */}
-						<div className="relative bg-[#54BCAC] border-4 border-[#142C3C] rounded-[100px] p-10 lg:p-12 text-center">
-							{/* Decorative element */}
-							<div className="absolute top-[-20px] right-10">
-								<div className="w-16 h-16 bg-[#AC7CDC] rounded-full border-4 border-[#142C3C]" />
-							</div>
-
-							<p className="text-white font-['Lato',sans-serif] text-lg mb-4">
-								30 Minute Introduction
-							</p>
-
-							<h3 className="text-white font-['DM_Serif_Display',serif] text-6xl lg:text-7xl mb-4">
-								FREE
-							</h3>
-
-							<p className="text-white font-['Lato',sans-serif] text-xl mb-2">
-								1 Hour
-							</p>
-
-							<p className="text-white font-['DM_Serif_Display',serif] text-5xl lg:text-6xl mb-8">
-								$120
-							</p>
-
-							<button
-								type="button"
-								className="bg-[#AC7CDC] border-4 border-[#142C3C] rounded-[60px] px-10 py-4 transition-transform hover:scale-105"
-							>
-								<span className="text-white font-['DM_Serif_Display',serif] text-2xl">
-									Book a session
-								</span>
-							</button>
-						</div>
+					<div>
+						<p className="font-['Lato',sans-serif] text-xs font-bold uppercase tracking-[0.18em] text-[#AC7CDC]">Explore</p>
+						<nav className="mt-4 flex flex-col items-start gap-3 font-['Lato',sans-serif] text-sm text-[#142C3C]">
+							<a href="/#about" className="transition-colors hover:text-[#54BCAC]">What is ANCRAR?</a>
+							<a href="/#features" className="transition-colors hover:text-[#54BCAC]">Features</a>
+							<a href="/#faq" className="transition-colors hover:text-[#54BCAC]">FAQ</a>
+						</nav>
+					</div>
+					<div className="rounded-3xl bg-[#54BCAC] p-5 sm:p-6">
+						<p className="font-['DM_Serif_Display',serif] text-2xl text-white">Keep learning through play.</p>
+						<a href="/#features" className="mt-4 inline-flex font-['Lato',sans-serif] text-sm font-bold text-[#142C3C] underline underline-offset-4">See the features -&gt;</a>
 					</div>
 				</div>
-
-				{/* Bottom Copyright */}
-				<div className="mt-20 text-center">
-					<p className="text-[#142C3C] font-['Lato',sans-serif] text-sm">
-						&copy; {new Date().getFullYear()} Ancrar. All rights reserved
-					</p>
-				</div>
+				<p className="pt-6 font-['Lato',sans-serif] text-xs text-[#142C3C]/55">
+					&copy; {new Date().getFullYear()} Ancrar. All rights reserved.
+				</p>
 			</div>
 		</footer>
 	);

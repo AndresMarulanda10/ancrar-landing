@@ -6,15 +6,20 @@ import DigitalNomad from "../components/home-page/DigitalNomad";
 import Brands from "../components/home-page/Brands";
 import QA from "../components/home-page/QA";
 import Layout from "../layouts/Layout.astro";
+import { appDescription, keywords, titleOptions } from '../content/home';
 ---
 
-<Layout title="Ancrar - La aplicación perfecta para aprender Español">
+	<Layout
+	    title={titleOptions[0]}
+	    description={appDescription}
+	    keywords={keywords}
+>
     <div>
-        <HomeHero client:load />
-        <Features client:load />
-        <Quotes client:load />
-        <DigitalNomad client:load />
-        <Brands client:load />
+        <HomeHero />
+        <Features />
+        <Quotes />
+        <DigitalNomad />
+        <Brands />
         <QA client:load />
     </div>
 </Layout>

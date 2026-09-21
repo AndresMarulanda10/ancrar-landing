@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">ANCRAR - Master Spanish verb conjugations through play</title>
+  <desc id="desc">A branded ANCRAR social preview with Spanish verb conjugation cards for AR, ER, and IR verbs.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111735"/>
+      <stop offset="1" stop-color="#24234C"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#54BCAC" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#AC7CDC" stop-opacity=".08"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#090D25" flood-opacity=".35"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1080" cy="-30" r="280" fill="#AC7CDC" opacity=".13"/>
+  <circle cx="35" cy="620" r="250" fill="#54BCAC" opacity=".11"/>
+  <path d="M0 510 C180 440 245 575 420 510 S680 450 795 520" fill="none" stroke="#54BCAC" stroke-width="2" opacity=".2"/>
+
+  <g transform="translate(76 67)">
+    <rect width="184" height="42" rx="21" fill="#54BCAC"/>
+    <text x="92" y="27" fill="#111735" font-family="Helvetica" font-size="16" font-weight="700" letter-spacing="3" text-anchor="middle">ANCRAR</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#F8FAF7">
+    <text x="76" y="205" font-family="Helvetica" font-size="65" font-weight="700" letter-spacing="-2">Master Spanish</text>
+    <text x="76" y="278" font-family="Helvetica" font-size="65" font-weight="700" letter-spacing="-2" fill="#54BCAC">verb conjugations</text>
+    <text x="80" y="335" font-family="Helvetica" font-size="31" font-weight="400" fill="#F8FAF7">through play.</text>
+    <text x="80" y="405" font-family="Helvetica" font-size="21" fill="#B9BED6">Understand, practice, and anchor every tense.</text>
+    <text x="80" y="444" font-family="Helvetica" font-size="21" fill="#B9BED6">Short sessions for confident Spanish.</text>
+  </g>
+
+  <g transform="translate(770 62) rotate(5)" opacity=".55">
+    <rect width="290" height="94" rx="20" fill="#AC7CDC"/>
+    <text x="145" y="59" fill="#24234C" font-family="Helvetica" font-size="32" font-weight="700" text-anchor="middle">conocer</text>
+  </g>
+
+  <g transform="translate(705 120)" filter="url(#shadow)">
+    <rect width="410" height="452" rx="28" fill="#F8FAF7"/>
+    <rect width="410" height="112" rx="28" fill="url(#glow)"/>
+    <rect y="84" width="410" height="28" fill="#F8FAF7"/>
+    <text x="34" y="43" fill="#656A84" font-family="Helvetica" font-size="15" font-weight="700" letter-spacing="2">PRACTICE DECK</text>
+    <text x="34" y="82" fill="#111735" font-family="Helvetica" font-size="30" font-weight="700">Choose your ending</text>
+
+    <g transform="translate(32 137)">
+      <rect width="346" height="77" rx="17" fill="#E4F5F2"/>
+      <rect x="18" y="18" width="49" height="41" rx="12" fill="#54BCAC"/>
+      <text x="42" y="46" fill="#111735" font-family="Helvetica" font-size="17" font-weight="700" text-anchor="middle">AR</text>
+      <text x="88" y="48" fill="#111735" font-family="Helvetica" font-size="24" font-weight="700">habl</text>
+      <text x="141" y="48" fill="#54BCAC" font-family="Helvetica" font-size="24" font-weight="700">ar</text>
+      <circle cx="316" cy="38" r="9" fill="#54BCAC"/>
+    </g>
+
+    <g transform="translate(32 231)">
+      <rect width="346" height="77" rx="17" fill="#F0E9FA"/>
+      <rect x="18" y="18" width="49" height="41" rx="12" fill="#AC7CDC"/>
+      <text x="42" y="46" fill="#24234C" font-family="Helvetica" font-size="17" font-weight="700" text-anchor="middle">ER</text>
+      <text x="88" y="48" fill="#111735" font-family="Helvetica" font-size="24" font-weight="700">aprend</text>
+      <text x="178" y="48" fill="#AC7CDC" font-family="Helvetica" font-size="24" font-weight="700">er</text>
+      <circle cx="316" cy="38" r="9" fill="#AC7CDC"/>
+    </g>
+
+    <g transform="translate(32 325)">
+      <rect width="346" height="77" rx="17" fill="#E4F5F2"/>
+      <rect x="18" y="18" width="49" height="41" rx="12" fill="#54BCAC"/>
+      <text x="42" y="46" fill="#111735" font-family="Helvetica" font-size="17" font-weight="700" text-anchor="middle">IR</text>
+      <text x="88" y="48" fill="#111735" font-family="Helvetica" font-size="24" font-weight="700">viv</text>
+      <text x="130" y="48" fill="#54BCAC" font-family="Helvetica" font-size="24" font-weight="700">ir</text>
+      <circle cx="316" cy="38" r="9" fill="#54BCAC"/>
+    </g>
+  </g>
+
+  <g transform="translate(79 536)">
+    <circle cx="9" cy="9" r="9" fill="#AC7CDC"/>
+    <text x="31" y="16" fill="#D7D9E8" font-family="Helvetica" font-size="17" letter-spacing=".5">Spanish verb practice, made memorable.</text>
+  </g>
+</svg>

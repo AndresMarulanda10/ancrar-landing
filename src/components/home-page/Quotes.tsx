@@ -1,54 +1,52 @@
 import type React from "react";
 
 const Quotes: React.FC = () => {
-	const quotes = [
+	const statements = [
 		{
 			id: 1,
-			text: "The coaching sessions were transformative. I gained clarity on my career path and the confidence to make bold moves.",
-			author: "Adriana Herrera",
+			text: "ANCRAR is an app designed to help users understand and memorize Spanish verb conjugations through a card-game-style system.",
+			label: "What ANCRAR is",
 		},
 		{
 			id: 2,
-			text: "Thanks to the guidance, I successfully transitioned into tech from a completely different field. Best investment I've made!",
-			author: "Alejandro Moreno",
+			text: "Its approach simplifies one of the most challenging aspects of the language, making learning more natural and effective.",
+			label: "Why it works",
 		},
 		{
 			id: 3,
-			text: "The sabbatical planning helped me take a much-needed break without career setbacks. I came back refreshed and motivated.",
-			author: "Valentina Silva",
+			text: "ANCRAR is the ideal complement to classes, self-study, or immersion experiences, helping you build confidence throughout the process.",
+			label: "Built to complement learning",
 		},
 	];
 
 	return (
-		<section className="relative bg-white py-20 overflow-hidden">
-			<div className="container mx-auto px-4">
-				{/* Section Title */}
-				<h2 className="text-center font-['DM_Serif_Display',serif] text-5xl lg:text-6xl text-[#142C3C] mb-16">
-					What People Say
-				</h2>
+		<section id="about" className="bg-white py-16 sm:py-20 lg:py-24">
+			<div className="container mx-auto px-5 sm:px-8">
+				<div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+					<div>
+						<p className="mb-3 font-['Lato',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#54BCAC]">
+							The idea behind the app
+						</p>
+						<h2 className="max-w-md font-['DM_Serif_Display',serif] text-5xl leading-[0.98] text-[#142C3C] sm:text-6xl">
+							What is ANCRAR?
+						</h2>
+					</div>
 
-				{/* Quotes Grid */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-					{quotes.map((quote) => (
-						<div key={quote.id} className="relative">
-							{/* Quote Card */}
-							<div className="bg-[#F4F4F4] border-4 border-[#142C3C] rounded-[60px] p-8 lg:p-10 min-h-[400px] flex flex-col justify-between">
-								{/* Quote Text */}
-								<div className="mb-8">
-									<p className="text-[#142C3C] font-['Lato',sans-serif] text-lg leading-relaxed italic">
-										"{quote.text}"
-									</p>
-								</div>
-
-								{/* Author */}
-								<div className="mt-auto">
-									<p className="text-[#142C3C] font-['DM_Serif_Display',serif] text-2xl">
-										— {quote.author}
-									</p>
-								</div>
-							</div>
-						</div>
-					))}
+					<div className="grid gap-4 sm:grid-cols-2">
+						{statements.map((statement, index) => (
+							<article
+								key={statement.id}
+								className={`rounded-3xl p-6 sm:p-7 ${index === 0 ? "bg-[#142C3C] text-white sm:col-span-2" : "bg-[#F4F4F4] text-[#142C3C]"}`}
+							>
+								<p className="font-['Lato',sans-serif] text-base leading-7 opacity-90 sm:text-lg">
+									{statement.text}
+								</p>
+								<p className="mt-7 font-['DM_Serif_Display',serif] text-xl">
+									{statement.label}
+								</p>
+							</article>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

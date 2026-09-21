@@ -5,7 +5,7 @@ const DigitalNomad: React.FC = () => {
 		<section className="bg-[#EAF7F4] py-16 sm:py-20 lg:py-24">
 			<div className="container mx-auto px-5 sm:px-8">
 				<div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-					<div>
+					<div data-gsap="reveal-heading">
 						<p className="mb-3 font-['Lato',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#AC7CDC]">
 							A flexible rhythm
 						</p>
@@ -14,7 +14,7 @@ const DigitalNomad: React.FC = () => {
 						</h2>
 					</div>
 
-					<div className="grid gap-4 sm:grid-cols-3">
+					<div data-gsap="reveal-cards" className="grid gap-4 sm:grid-cols-3">
 						{["5 minutes", "10 minutes", "15 minutes"].map((duration, index) => (
 							<div
 								key={duration}

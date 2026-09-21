@@ -23,7 +23,7 @@ const Quotes: React.FC = () => {
 		<section id="about" className="bg-white py-16 sm:py-20 lg:py-24">
 			<div className="container mx-auto px-5 sm:px-8">
 				<div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
-					<div>
+					<div data-gsap="reveal-heading">
 						<p className="mb-3 font-['Lato',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#54BCAC]">
 							The idea behind the app
 						</p>
@@ -32,7 +32,7 @@ const Quotes: React.FC = () => {
 						</h2>
 					</div>
 
-					<div className="grid gap-4 sm:grid-cols-2">
+					<div data-gsap="reveal-cards" className="grid gap-4 sm:grid-cols-2">
 						{statements.map((statement, index) => (
 							<article
 								key={statement.id}

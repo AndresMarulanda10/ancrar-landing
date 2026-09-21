@@ -5,7 +5,7 @@ const Features: React.FC = () => {
 	return (
 		<section id="features" className="bg-[#F4F4F4] py-16 sm:py-20 lg:py-24">
 			<div className="container mx-auto px-5 sm:px-8">
-				<div className="mb-10 max-w-2xl sm:mb-14">
+				<div data-gsap="reveal-heading" className="mb-10 max-w-2xl sm:mb-14">
 					<p className="mb-3 font-['Lato',sans-serif] text-xs font-bold uppercase tracking-[0.2em] text-[#AC7CDC]">
 						Learn through play
 					</p>
@@ -14,7 +14,7 @@ const Features: React.FC = () => {
 					</h2>
 				</div>
 
-				<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+				<div data-gsap="reveal-cards" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 					{features.map((feature) => (
 						<article
 							key={feature.id}

@@ -16,13 +16,13 @@ const HomeHero: React.FC = () => {
 			<div className="container relative z-10 mx-auto px-5 pb-28 pt-14 sm:px-8 sm:pb-32 md:py-20 lg:py-24">
 				<div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
 					<div className="max-w-xl">
-						<p className="mb-5 font-['Lato',sans-serif] text-sm font-bold uppercase tracking-[0.24em] text-white/75">
+						<p className="mb-5 font-['Lato',sans-serif] text-sm font-bold uppercase tracking-[0.24em] text-[#142C3C]">
 							ANCRAR
 						</p>
-						<h1 className="font-['DM_Serif_Display',serif] text-5xl leading-[0.98] text-white sm:text-6xl lg:text-7xl">
+						<h1 className="font-['DM_Serif_Display',serif] text-5xl leading-[0.98] text-[#142C3C] sm:text-6xl lg:text-7xl">
 							Master Spanish verb conjugations with Ancrar: learn through play.
 						</h1>
-						<p className="mt-7 max-w-lg font-['Lato',sans-serif] text-base leading-7 text-white/85 sm:text-lg">
+						<p className="mt-7 max-w-lg font-['Lato',sans-serif] text-base leading-7 text-[#142C3C] sm:text-lg">
 							Understand and memorize Spanish verb conjugations through a card-game-style system.
 						</p>
 						<a

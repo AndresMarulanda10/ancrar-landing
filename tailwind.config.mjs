@@ -4,17 +4,17 @@ export default {
     theme: {
         extend: {
             colors: {
-                appAccent: '#A48A63',
-                appBody: '#F4F2E8',
-                appText: '#272424',
+                appAccent: '#142C3C',
+                appBody: '#F4F4F4',
+                appText: '#142C3C',
                 appGray: {
-                    100: '#E0E0E0',
-                    200: '#6A6A75',
-                    300: '#63635F',
-                    400: '#8F8E88',
-                    500: '#9C9090',
-                    600: '#786F6F',
-                    700: '#454040',
+                    100: '#F4F4F4',
+                    200: '#D1D5DB',
+                    300: '#9CA3AF',
+                    400: '#6B7280',
+                    500: '#4B5563',
+                    600: '#334155',
+                    700: '#142C3C',
                 },
             },
             container: {

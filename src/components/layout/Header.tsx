@@ -23,7 +23,7 @@ const Header: React.FC = () => {
 							<li key={item.label}>
 								<a
 									href={item.href}
-									className="whitespace-nowrap font-['Lato',sans-serif] text-[11px] font-bold text-white transition-opacity hover:opacity-70 sm:text-sm"
+									className="whitespace-nowrap font-['Lato',sans-serif] text-[11px] font-bold text-[#142C3C] transition-opacity hover:opacity-70 sm:text-sm"
 								>
 									{item.label}
 								</a>

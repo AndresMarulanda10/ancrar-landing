@@ -72,13 +72,15 @@ const QA: React.FC = () => {
 								</button>
 
 								{/* Answer */}
-								{openIndex === index && (
-									<div id={`faq-answer-${faq.id}`} className="px-6 pb-6">
-										<p className="text-[#142C3C] font-['Lato',sans-serif] text-base lg:text-lg leading-relaxed">
-											{faq.answer}
-										</p>
-									</div>
-								)}
+								<div
+									id={`faq-answer-${faq.id}`}
+									hidden={openIndex !== index}
+									className="px-6 pb-6"
+								>
+									<p className="text-[#142C3C] font-['Lato',sans-serif] text-base lg:text-lg leading-relaxed">
+										{faq.answer}
+									</p>
+								</div>
 							</div>
 						))}
 					</div>
